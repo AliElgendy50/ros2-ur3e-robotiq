@@ -46,7 +46,8 @@ docker build -t alielgendy50/ros2_ur3e_gripper_robotiq_2f_85:latest .
 If you prefer not to build it yourself:
 
 ```bash
-docker pull alielgendy50/ros2_ur3e_gripper_robotiq_2f_85:latest
+
+docker pull alielgendy50/ros2_ur3e_gripper:latest
 ```
 
 ---
@@ -56,10 +57,15 @@ docker pull alielgendy50/ros2_ur3e_gripper_robotiq_2f_85:latest
 Run the Docker container interactively:
 
 ```bash
+
+xhost +local:docker
+  
 docker run -it --rm \
+  --net=host \
+  -e DISPLAY=$DISPLAY \
+  -v /tmp/.X11-unix:/tmp/.X11-unix \
   --name ros2_ur3e_gripper_robotiq_2f_85 \
-  alielgendy50/ros2_ur3e_gripper_robotiq_2f_85:latest
-```
+  alielgendy50/ros2_ur3e_gripper:latest
 
 ---
 
@@ -68,10 +74,10 @@ docker run -it --rm \
 Once inside the running container:
 
 ```bash
-source /ros2_ws/install/setup.bash
-
-ros2 launch urdf_tutorial display.launch.py \
-  model:=/ros2_ws/src/ur_robotiq/ur_robotiq_description/urdf/ur3e_urdf.xacro
+source /ros2_ws/install/setup.sh
+  
+ros2 launch urdf_tutorial display.launch.py model:=/home/ros/ros2_ws/src/ur_robotiq/ur_robotiq_description/urdf/ur3e_robotiq_2f_85_urdf.xacro  
+  
 ```
 
 > If `/ros2_ws/install` does not exist (e.g., first run), build the workspace first:
@@ -79,7 +85,7 @@ ros2 launch urdf_tutorial display.launch.py \
 > ```bash
 > cd /ros2_ws
 > colcon build
-> source install/setup.bash
+> source install/setup.sh
 > ```
 
 ---
