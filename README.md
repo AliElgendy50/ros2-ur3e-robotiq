@@ -36,7 +36,7 @@ ros2-ur3e-robotiq/
 ### 🔨 Build the Docker Image
 
 ```bash
-docker build -t alielgendy50/ros2_ur3e_gripper_robotiq_2f_85:latest .
+docker build -t alielgendy50/ros2_ur3e_gripper:latest .
 ```
 
 > 🧠 Note: This image is based on a ROS2 environment and includes all required dependencies.
