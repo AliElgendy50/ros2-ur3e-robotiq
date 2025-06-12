@@ -41,7 +41,7 @@ docker build -t alielgendy50/ros2_ur3e_gripper:latest .
 
 > 🧠 Note: This image is based on a ROS2 environment and includes all required dependencies.
 
-### ⬇️ Pull the Image from Docker Hub (Optional)
+### ⬇️ Pull the Image from Docker Hub
 
 If you prefer not to build it yourself:
 
